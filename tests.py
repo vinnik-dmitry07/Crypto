@@ -1,6 +1,6 @@
 import unittest
 
-from aes import AES, encrypt, decrypt
+from aes1 import AES, encrypt, decrypt
 
 
 class TestBlock(unittest.TestCase):
