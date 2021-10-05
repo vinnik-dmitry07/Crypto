@@ -2,7 +2,7 @@
 
 Method   | AES 1 | AES 2 | Kalyna (mine) | Kalyna 1 | Kalyna 2
 ---      | ---   |  ---  | ---           | ---      | ---
-Hours/Gb | 2.7   | 29    | 10            | 120      | 290
+Hours/Gb | 5.4   | 29    | 10            | 120      | 290
 
 AES 2 - http://anh.cs.luc.edu/331/code/aes.py
 
