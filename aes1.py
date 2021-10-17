@@ -260,6 +260,33 @@ class AES:
 
         return matrix2bytes(cipher_state)
 
+    def encrypt_ecb(self, plaintext, _):
+        """
+        Encrypts `plaintext` using ECB mode and PKCS#7 padding, with the given
+        initialization vector (iv).
+        """
+        plaintext = pad(plaintext)
+
+        blocks = []
+        for plaintext_block in split_blocks(plaintext):
+            # CBC mode encrypt: encrypt(plaintext_block XOR previous)
+            block = self.encrypt_block(plaintext_block)
+            blocks.append(block)
+
+        return b''.join(blocks)
+
+    def decrypt_ecb(self, ciphertext, _):
+        """
+        Decrypts `ciphertext` using ECB mode and PKCS#7 padding, with the given
+        initialization vector (iv).
+        """
+        blocks = []
+        for ciphertext_block in split_blocks(ciphertext):
+            # CBC mode decrypt: previous XOR decrypt(ciphertext)
+            blocks.append(self.decrypt_block(ciphertext_block))
+
+        return unpad(b''.join(blocks))
+
     def encrypt_cbc(self, plaintext, iv):
         """
         Encrypts `plaintext` using CBC mode and PKCS#7 padding, with the given
