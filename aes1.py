@@ -161,7 +161,7 @@ def unpad(plaintext):
 
 def split_blocks(message, block_size=16, require_padding=True):
     assert len(message) % block_size == 0 or not require_padding
-    return [message[i:i + 16] for i in range(0, len(message), block_size)]
+    return tqdm([message[i:i + 16] for i in range(0, len(message), block_size)])
 
 
 class AES:
@@ -271,7 +271,7 @@ class AES:
 
         blocks = []
         previous = iv
-        for plaintext_block in tqdm(split_blocks(plaintext)):
+        for plaintext_block in split_blocks(plaintext):
             # CBC mode encrypt: encrypt(plaintext_block XOR previous)
             block = self.encrypt_block(xor_bytes(plaintext_block, previous))
             blocks.append(block)
@@ -518,6 +518,6 @@ def benchmark():
 __all__ = [encrypt, decrypt, AES]
 
 if __name__ == '__main__':
-    key = 'my secret key'
+    key = 'cybernetics'
     chifer = encrypt(key, b'1' * 10 ** 9)
     decrypt(key, chifer)
