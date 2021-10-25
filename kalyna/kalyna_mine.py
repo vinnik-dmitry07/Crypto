@@ -5,7 +5,6 @@ from tqdm import tqdm
 
 from aes1 import get_key_iv, SALT_SIZE, pad, split_blocks, unpad
 from kalyna import Kalyna, KALYNA_TYPE
-from tools import string2bytes, bytes2string
 
 if __name__ == "__main__":
     password = 'my secret key'
