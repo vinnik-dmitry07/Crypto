@@ -17,9 +17,9 @@ Kalyna 2 - https://github.com/trident-10/kalyna_cipher/
 
 The number of random strings to receive the same hash:
 
-String length \ Method   | SHA256 | Kupyna
----                      | ---    |  ---  
-2                        | 152    | 191    
-3                        | 457    | 891    
-4                        | 15951  | 17605  
-5                        | 175081 | 38576
+String length \ Method   | SHA256  | Kupyna
+---                      | ---     |  ---  
+2                        | 152     | 191    
+3                        | 457     | 891    
+4                        | 15951   | 17605  
+5                        | 1110507 | 129372
