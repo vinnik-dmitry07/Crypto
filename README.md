@@ -25,7 +25,7 @@ String length \ Method   | SHA256  | Kupyna
 5                        | 1110507 | 129372
 
 
-# RSA benchmark
+## RSA benchmark
 
 Hours / 10 GB:
 
