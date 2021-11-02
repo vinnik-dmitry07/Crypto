@@ -23,3 +23,15 @@ String length \ Method   | SHA256  | Kupyna
 3                        | 457     | 891    
 4                        | 15951   | 17605  
 5                        | 1110507 | 129372
+
+
+# RSA benchmark
+
+Hours / 10 GB:
+
+Secret length     | RSA     | RSA-OAEP
+---               | ---     |  ---  
+16                | 0.33    | 2    
+32                | 0.66    | 5    
+64                | 1.5     | 11  
+128               | 3.75    | 25
