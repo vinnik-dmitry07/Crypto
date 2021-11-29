@@ -1,3 +1,5 @@
+from typing import Union
+
 K = [
     0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
     0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
@@ -153,8 +155,14 @@ def _rotate_right(num: int, shift: int, size: int = 32):
     return (num >> shift) | (num << size - shift)
 
 
-def sha256(message: str) -> str:
-    return generate_hash(message).hex()
+def sha256(message: str, ret_type='byte') -> Union[bytearray, str, int]:
+    hash_ = generate_hash(message)
+    if ret_type == 'byte':
+        return hash_
+    elif ret_type == 'int':
+        return int.from_bytes(hash_, byteorder='big')
+    elif ret_type == 'str':
+        return hash_.hex()
 
 
 if __name__ == '__main__':
